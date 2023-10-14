@@ -4,8 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public class TodolistUserRepository  extends JpaRepository<TodolistUserModel, UUID>{
+public interface ITodolistUserRepository extends JpaRepository<TodolistUserModel, UUID>{
 
-    
+    TodolistUserModel findByUserName(String userName); // select
 
 }
