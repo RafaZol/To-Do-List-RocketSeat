@@ -1,4 +1,4 @@
-package br.com.task;
+package br.com.rafaelzolet.todolist.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
