@@ -1,6 +1,9 @@
 package br.com.rafaelzolet.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,9 +18,15 @@ public class TodolistUserController {
     private ITodolistUserRepository repository;
 
     @PostMapping("/")
-    public TodolistUserModel create(@RequestBody TodolistUserModel userModel){ 
+    public ResponseEntity create(@RequestBody TodolistUserModel userModel){ 
+        var user = this.repository.findByUserName(userModel.getUserName());
        
+        if(user != null){
+            System.out.println("Usuario já cadastrado");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuario já cadastrado");
+
+        }
         var userCreated = this.repository.save(userModel);
-        return userCreated; 
+        return ResponseEntity.status(HttpStatus.CREATED).body(userCreated); 
     }
 }
