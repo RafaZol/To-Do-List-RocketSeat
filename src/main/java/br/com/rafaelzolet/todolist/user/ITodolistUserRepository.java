@@ -1,4 +1,4 @@
-package br.com.rafaelzolet.user;
+package br.com.rafaelzolet.todolist.user;
 
 import java.util.UUID;
 
