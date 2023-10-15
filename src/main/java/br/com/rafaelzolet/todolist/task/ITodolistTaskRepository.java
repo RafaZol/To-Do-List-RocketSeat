@@ -9,7 +9,5 @@ import java.util.List;
 public interface ITodolistTaskRepository extends JpaRepository<TodolistTaskModel, UUID> {
 
     List<TodolistTaskModel> findByIdUser(UUID idUser);
-
-    
-    
+        
 }
