@@ -29,12 +29,16 @@ public class TodolistTaskModel {
 
      @Column(length = 50)
      private String title;
+     @Column(name = "startat")
      private LocalDateTime startAt;
+     @Column(name = "endat")
      private LocalDateTime endAt;
      private String priority;
 
      @CreationTimestamp
+     @Column(name = "createdat")
      private LocalDateTime createdAt;
+     @Column(name = "id_user")
      private UUID idUser;
 
      public void setTitle(String title) throws Exception{

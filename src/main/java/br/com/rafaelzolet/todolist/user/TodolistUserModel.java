@@ -19,12 +19,13 @@ public class TodolistUserModel {
     @GeneratedValue(generator = "UUID")
     private UUID id;
     
-    @Column(unique = true)
+    @Column(unique = true, name = "username")
     private String userName;
     private String name;
     private String password;
 
     @CreationTimestamp
+    @Column(name = "createdat")
     private LocalDateTime createdAt;
 
 
